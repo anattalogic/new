@@ -1,10 +1,14 @@
-const withNextra = require('nextra')
+// Nextra v4 မှာ named export ဖြစ်တဲ့ { nextra } ကို သုံးရပါမယ်
+const { nextra } = require('nextra')
 
-module.exports = withNextra({
+const withNextra = nextra({
   theme: 'nextra-theme-docs',
   themeConfig: './theme.config.tsx',
-  output: 'export',      // GitHub Pages အတွက် သတ်မှတ်ပေးရမည့် Static Export လိုင်း
+})
+
+module.exports = withNextra({
+  output: 'export',      // GitHub Pages Static Export အတွက်
   images: {
-    unoptimized: true,   // GitHub Pages မှာ ပုံတွေ ပျက်မသွားအောင် ထိန်းပေးတဲ့လိုင်း
+    unoptimized: true,   // ပုံတွေ ပျက်မသွားစေရန်
   },
 })
